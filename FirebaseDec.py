@@ -20,6 +20,6 @@ def getPriceGBBuy():
 while 1:
     Gval = getPriceGBBuy()
     print(Gval)
-    time.sleep(6)
+    time.sleep(10)
     i = i + 1
     print(i)
