@@ -2,9 +2,15 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-Gval = 1
-i = 1
-def getPriceGBBuy():
+print("=======================================================")
+print("| This application will show gold price int Thai Baht |")
+print("|              for 10 seconds interval.               |")
+print("=======================================================")
+
+printCounter = 1
+INTERVAL_TIME_IN_SECONDS = 10
+
+def getGoldPrice():
     r = requests.get("https://www.goldtraders.or.th/")
     soup = BeautifulSoup(r.content, "html.parser")
     data = soup.find_all("span", {"id": "DetailPlace_uc_goldprices1_lblBLBuy"})
@@ -18,8 +24,6 @@ def getPriceGBBuy():
     return GBBuy
 
 while 1:
-    Gval = getPriceGBBuy()
-    print(Gval)
-    time.sleep(10)
-    i = i + 1
-    print(i)
+    print(f"{printCounter}: {getGoldPrice()} THB.")
+    printCounter += 1
+    time.sleep(INTERVAL_TIME_IN_SECONDS)
