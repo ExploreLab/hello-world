@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 
 Gval = 1
+i = 1
 def getPriceGBBuy():
     r = requests.get("https://www.goldtraders.or.th/")
     soup = BeautifulSoup(r.content, "html.parser")
@@ -20,3 +21,5 @@ while 1:
     Gval = getPriceGBBuy()
     print(Gval)
     time.sleep(6)
+    i = i + 1
+    print(i)
